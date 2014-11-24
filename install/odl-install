@@ -21,16 +21,10 @@ heliumVersion=0.2.1-Helium-SR1
 wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distribution-karaf/'${heliumVersion}'/distribution-karaf-'${heliumVersion}'.zip'
 unzip distribution-karaf-${heliumVersion}.zip
 rm distribution-karaf-${heliumVersion}.zip
+sed -i 's/0.0.0.0/127.0.0.1/g' distribution-karaf-${heliumVersion}/etc/org.apache.karaf.management.cfg
 
 #run file
 ./distribution-karaf-${heliumVersion}/bin/karaf 
-
-#wget 'https://jenkins.opendaylight.org/integration/job/integration-helium-project-centralized-integration/lastSuccessfulBuild/artifact/distributions/extra/karaf/target/distribution-karaf-0.2.2-SNAPSHOT.zip'
-#unzip distribution-karaf-0.2.2-SNAPSHOT.zip
-#cd distribution-karaf-0.2.2-SNAPSHOT
-
-#changing in etc/org.apache.karaf.management.cfg the "0.0.0.0" instances to "127.0.0.1" fixed it.
-
 
 
 #bundle:install mvn:org.opendaylight.controller/arphandler/0.5.4-SNAPSHOT 
