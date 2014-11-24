@@ -1,0 +1,37 @@
+#!/bin/bash
+#install OpenDaylight
+
+# 1. install Hydrogen base
+hydrogenVersion="0.1.1"
+wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distributions-base/'${hydrogenVersion}'/distributions-base-'${hydrogenVersion}'-osgipackage.zip'
+unzip distributions-base-${hydrogenVersion}-osgipackage.zip
+rm distributions-base-${hydrogenVersion}-osgipackage.zip
+
+#to run to get osgi> 
+#./opendaylight/run.sh
+
+
+# 2. install openflow plugin - drop test
+openflowPluginVersion="0.1.0-SNAPSHOT"
+wget 'https://jenkins.opendaylight.org/openflowplugin/job/openflowplugin-merge/lastSuccessfulBuild/org.opendaylight.openflowplugin$drop-test/artifact/org.opendaylight.openflowplugin/drop-test/'${openflowPluginVersion}'/drop-test-'${openflowPluginVersion}'.jar'
+mv drop-test-${openflowPluginVersion}.jar opendaylight/plugins
+
+# 3. install Helium
+heliumVersion=0.2.1-Helium-SR1
+wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distribution-karaf/'${heliumVersion}'/distribution-karaf-'${heliumVersion}'.zip'
+unzip distribution-karaf-${heliumVersion}.zip
+rm distribution-karaf-${heliumVersion}.zip
+
+#run file
+./distribution-karaf-${heliumVersion}/bin/karaf 
+
+#wget 'https://jenkins.opendaylight.org/integration/job/integration-helium-project-centralized-integration/lastSuccessfulBuild/artifact/distributions/extra/karaf/target/distribution-karaf-0.2.2-SNAPSHOT.zip'
+#unzip distribution-karaf-0.2.2-SNAPSHOT.zip
+#cd distribution-karaf-0.2.2-SNAPSHOT
+
+#changing in etc/org.apache.karaf.management.cfg the "0.0.0.0" instances to "127.0.0.1" fixed it.
+
+
+
+#bundle:install mvn:org.opendaylight.controller/arphandler/0.5.4-SNAPSHOT 
+#bundle:start arphandler

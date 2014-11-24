@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Install java
+sudo apt-get update
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+#install unzip
+sudo apt-get install unzip
+
+#Install GIT GUI
+#sudo apt-get install git-gui
