@@ -23,16 +23,12 @@ unzip distribution-karaf-${heliumVersion}.zip
 rm distribution-karaf-${heliumVersion}.zip
 sed -i 's/0.0.0.0/127.0.0.1/g' distribution-karaf-${heliumVersion}/etc/org.apache.karaf.management.cfg
 
-#run file
+#run karaf-distribution
 ./distribution-karaf-${heliumVersion}/bin/karaf 
 
-# run the follwing in opendaylight-user@root> :
-#feature:install odl-integration-compatible-with-all 
-#feature:install odl-dlux-all
-#feature:install odl-openflowplugin-all
-#feature:install odl-restconf
-
-#open firefox in: http://127.0.0.1:8181/dlux/index.html
+# run the follwing in opendaylight controller:
+# opendaylight-user@root> feature:install odl-integration-compatible-with-all odl-dlux-all odl-openflowplugin-all odl-restconf odl-l2switch-switch odl-mdsal-apidocs odl-dlux-core 
+#open firefox: http://127.0.0.1:8181/dlux/index.html
  
 
 
