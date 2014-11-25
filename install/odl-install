@@ -26,6 +26,6 @@ sed -i 's/0.0.0.0/127.0.0.1/g' distribution-karaf-${heliumVersion}/etc/org.apach
 #run file
 ./distribution-karaf-${heliumVersion}/bin/karaf 
 
-
-#bundle:install mvn:org.opendaylight.controller/arphandler/0.5.4-SNAPSHOT 
+### search version in: odluser@odl-vm:~\$  cd <distro-folder>/system/system/org/opendaylight/controller/arphandler/<version> 
+#bundle:install mvn:org.opendaylight.controller/arphandler/0.5.3-Helium-SR1 
 #bundle:start arphandler
