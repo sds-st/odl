@@ -2,8 +2,10 @@
 #install OpenDaylight
 
 # 1. install Hydrogen base
-hydrogenVersion="0.1.1"
-wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distributions-base/'${hydrogenVersion}'/distributions-base-'${hydrogenVersion}'-osgipackage.zip'
+hydrogenVersion="0.3.0-SNAPSHOT"
+wget 'https://jenkins.opendaylight.org/integration/job/integration-master-project-centralized-integration/lastSuccessfulBuild/artifact/distributions/base/target/distributions-base-'${hydrogenVersion}'-osgipackage.zip'
+#hydrogenVersion="0.1.1"
+#wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distributions-base/'${hydrogenVersion}'/distributions-base-'${hydrogenVersion}'-osgipackage.zip'
 unzip distributions-base-${hydrogenVersion}-osgipackage.zip
 rm distributions-base-${hydrogenVersion}-osgipackage.zip
 
@@ -17,11 +19,17 @@ wget 'https://jenkins.opendaylight.org/openflowplugin/job/openflowplugin-merge/l
 mv drop-test-${openflowPluginVersion}.jar opendaylight/plugins
 
 # 3. install Helium
-heliumVersion=0.2.1-Helium-SR1
-wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distribution-karaf/'${heliumVersion}'/distribution-karaf-'${heliumVersion}'.zip'
+heliumVersion=0.2.2-SNAPSHOT
+wget 'https://jenkins.opendaylight.org/integration/job/integration-helium-project-centralized-integration/lastSuccessfulBuild/artifact/distributions/extra/karaf/target/distribution-karaf-'${heliumVersion}'.zip'
+#heliumVersion=0.2.1-Helium-SR1
+#wget 'https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/distribution-karaf/'${heliumVersion}'/distribution-karaf-'${heliumVersion}'.zip'
 unzip distribution-karaf-${heliumVersion}.zip
 rm distribution-karaf-${heliumVersion}.zip
 sed -i 's/0.0.0.0/127.0.0.1/g' distribution-karaf-${heliumVersion}/etc/org.apache.karaf.management.cfg
+
+#install mininet
+git clone git://github.com/mininet/mininet
+mininet/util/install.sh -w
 
 #run karaf-distribution
 ./distribution-karaf-${heliumVersion}/bin/karaf 
