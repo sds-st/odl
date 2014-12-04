@@ -30,6 +30,7 @@ sed -i 's/0.0.0.0/127.0.0.1/g' distribution-karaf-${heliumVersion}/etc/org.apach
 #install mininet
 git clone git://github.com/mininet/mininet
 mininet/util/install.sh -w
+sudo apt-get install mininet
 
 #run karaf-distribution
 ./distribution-karaf-${heliumVersion}/bin/karaf 
