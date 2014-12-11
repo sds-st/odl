@@ -1,0 +1,19 @@
+
+#tree
+sudo mn --controller remote --topo tree,depth=2,fanout=8
+
+#single
+sudo mn --controller remote --topo single,16
+
+#linear
+sudo mn --controller remote --topo linear,16
+
+#torus
+sudo mn --controller remote --topo torus,3,3
+
+
+#clean
+sudo mn -c
+
+#ping 5 times
+h1 ping -c 5 h3
