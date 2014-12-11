@@ -36,8 +36,9 @@ sudo apt-get install mininet
 ./distribution-karaf-${heliumVersion}/bin/karaf 
 
 # run the follwing in opendaylight controller:
-# opendaylight-user@root> feature:install odl-integration-compatible-with-all odl-dlux-all odl-openflowplugin-all odl-restconf odl-l2switch-switch odl-mdsal-apidocs odl-dlux-core 
-#open firefox: http://127.0.0.1:8181/dlux/index.html
+# opendaylight-user@root>feature:install odl-restconf-all odl-openflowplugin-all odl-flow-model odl-l2switch-switch
+# opendaylight-user@root>feature:install odl-dlux-all
+# open firefox: http://127.0.0.1:8181/dlux/index.html
  
 
 
