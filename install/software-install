@@ -9,8 +9,8 @@ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
 #install unzip
 sudo apt-get install unzip
 
-#Install maven2
-sudo apt-get install maven2 
+#Install maven
+sudo apt-get install maven
 
 
 #Install GIT GUI
